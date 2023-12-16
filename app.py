@@ -72,11 +72,11 @@ def get_job_results(job_id):
 # extracting the public IPs from the job results
 # ------------------------------------------------------------------------------
 def extract_public_ips(root):
-    return [
+    return set(
         entry.find("public_ip").text
         for entry in root.findall(".//entry")
         if entry.find("public_ip") is not None
-    ]
+    )
 
 
 # ------------------------------------------------------------------------------
